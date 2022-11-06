@@ -28,7 +28,7 @@ jobs:
           zip \
           zstd
           sudo python3 -m pip install meson
-          sudo python3 -m pip install ninja==1.11.0
+          sudo python3 -m pip install -t /usr/local/bin/ ninja
       - id: install_pacman
         env:
           PACMAN_VERSION: 6.0.2

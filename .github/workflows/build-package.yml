@@ -30,8 +30,6 @@ jobs:
           sudo python3 -m pip install meson
           sudo python3 -m pip install ninja
       - id: install_pacman
-        env:
-          PACMAN_VERSION: 6.0.2
         run: |
           sudo git clone -q --depth 1 https://gitlab.manjaro.org/packages/core/pacman.git
           pushd pacman

@@ -15,7 +15,7 @@ jobs:
         run: |
           sudo systemctl disable --now snapd
           sudo systemctl disable --now snapd.socket
-          sudo apt purge -y snapd gnome-software-plugin-snap
+          sudo apt purge -y snapd firefox
           sudo apt autoremove --purge -y
           cd /etc/apt/preferences.d/
           sudo touch nosnap.pref

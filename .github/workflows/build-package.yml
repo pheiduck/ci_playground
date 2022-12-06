@@ -14,6 +14,7 @@ jobs:
       - id: uninstall_snap
         run: |
           cd /etc/apt/preferences.d/
+          sudo touch nosnap.pref
           sudo cat > nosnap.pref <<EOF
           # To prevent repository packages from triggering the installation of snap,
           # this file forbids snapd from being installed by APT.

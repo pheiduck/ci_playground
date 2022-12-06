@@ -13,12 +13,15 @@ jobs:
     steps:
       - id: uninstall_snap
         run: |
-          sudo snap remove --purge $(snap list | awk '!/^Name|^core/ {print $1}')
           sudo systemctl disable --now snapd
+          sudo systemctl disable --now snapd.socket
           sudo apt purge -y snapd gnome-software-plugin-snap
           sudo apt autoremove --purge -y
-          rm -rf ~/snap/
-          rm -rf /var/cache/snapd/
+          sudo rm -rf ~/snap
+          sudo rm -rf /snap
+          sudo rm -rf /var/snap
+          sudo rm -rf /var/lib/snapd
+          sudo rm -rf /var/cache/snapd
 
       - id: install_build-dependencies
         run: |

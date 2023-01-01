@@ -49,15 +49,14 @@ jobs:
           libgpgme-dev \
           libssl-dev \
           zip \
-          zstd \
-          gettext-base
+          zstd
           sudo python3 -m pip install meson
           sudo python3 -m pip install ninja
       - id: install_pacman
         run: |
           sudo git clone -q --depth 1 https://gitlab.manjaro.org/packages/core/pacman.git
           pushd pacman
-          sudo git clone -q --depth 1 https://gitlab.archlinux.org/pacman/pacman.git
+          sudo git clone -q --depth 1 -b v6.0.2 https://gitlab.archlinux.org/pacman/pacman.git
           pushd pacman
           sudo patch -p1 -i ../pacman-sync-first-option.patch
           sudo meson --prefix=/usr \

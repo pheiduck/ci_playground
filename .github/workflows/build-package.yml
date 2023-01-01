@@ -50,7 +50,7 @@ jobs:
           libssl-dev \
           zip \
           zstd \
-          gettext
+          gettext-base
           sudo python3 -m pip install meson
           sudo python3 -m pip install ninja
       - id: install_pacman

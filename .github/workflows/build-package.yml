@@ -35,21 +35,12 @@ jobs:
           sudo rm -rf /var/cache/snapd
 
       - id: install_build-dependencies
+        uses: tecolicom/actions-use-apt-tools@main
+        with:
+          tools: build-essential cmake fakeroot git libarchive-dev libarchive-tools libcurl4-openssl-dev libgpgme-dev libssl-dev zip zstd
+          method: timestamp
+      - id: install_python-dependencies
         run: |
-          sudo apt-fast update
-          sudo apt-fast dist-upgrade -y
-          sudo apt-fast -y install \
-          build-essential \
-          cmake \
-          fakeroot \
-          git \
-          libarchive-dev \
-          libarchive-tools \
-          libcurl4-openssl-dev \
-          libgpgme-dev \
-          libssl-dev \
-          zip \
-          zstd
           sudo python3 -m pip install meson ninja
       - id: install_pacman
         run: |

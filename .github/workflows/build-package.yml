@@ -35,10 +35,9 @@ jobs:
           sudo rm -rf /var/cache/snapd
 
       - id: install_build-dependencies
-        uses: tecolicom/actions-use-apt-tools@main
+        uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          tools: build-essential cmake fakeroot git libarchive-dev libarchive-tools curl libcurl4-openssl-dev libgpgme-dev libssl-dev libarchive-dev zip zstd
-          method: timestamp
+          packages: build-essential cmake fakeroot git libarchive-dev libarchive-tools curl libcurl4-openssl-dev libgpgme-dev libssl-dev libarchive-dev zip zstd
       - id: install_python-dependencies
         run: |
           sudo python3 -m pip install meson ninja

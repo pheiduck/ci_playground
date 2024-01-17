@@ -37,7 +37,7 @@ jobs:
       - id: install_build-dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: build-essential cmake fakeroot git libarchive-dev libarchive-tools curl libcurl4-openssl-dev libgpgme-dev libssl-dev libarchive-dev zip zstd
+          packages: build-essential cmake fakeroot git libarchive-dev libarchive-tools libcurl4-openssl-dev libgpgme-dev libssl-dev libarchive-dev zip zstd
       - id: install_python-dependencies
         run: |
           sudo python3 -m pip install meson ninja

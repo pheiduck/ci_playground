@@ -11,7 +11,7 @@ jobs:
         PACKAGE: [ci-test]
         REPO: [pheiduck]
     steps:
-      - id: uninstall_snap
+      - name: uninstall_snap
         run: |
           sudo systemctl disable --now snapd
           sudo systemctl disable --now snapd.socket
@@ -34,14 +34,14 @@ jobs:
           sudo rm -rf /var/lib/snapd
           sudo rm -rf /var/cache/snapd
 
-      - id: install_build-dependencies
+      - name: install_build-dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: build-essential cmake fakeroot git libarchive-dev libarchive-tools libcurl4-openssl-dev libgpgme-dev libssl-dev libarchive-dev zip zstd
-      - id: install_python-dependencies
+      - name: install_python-dependencies
         run: |
           sudo python3 -m pip install meson ninja
-      - id: install_pacman
+      - name: install_pacman
         run: |
           sudo git clone -q --depth 1 https://gitlab.manjaro.org/packages/core/pacman.git
           pushd pacman
@@ -63,7 +63,7 @@ jobs:
           sudo mkdir -p /etc/pacman.d
           sudo touch /etc/pacman.d/mirrorlist
           popd
-      - id: install_keyrings
+      - name: install_keyrings
         run: |
           sudo install -dm755 /usr/share/pacman/keyrings/
           sudo git clone -q --depth 1 https://gitlab.manjaro.org/packages/core/manjaro-keyring.git

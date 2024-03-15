@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Free disk space
         run: |
-          sudo rm -rfv /opt/hostedtoolcache
+          sudo rm -rf /opt/hostedtoolcache
       - name: uninstall_snap
         run: |
           sudo systemctl disable --now snapd

@@ -13,7 +13,6 @@ jobs:
     steps:
       - name: Free disk space
         run: |
-          sudo rm -rfv /usr/local
           sudo rm -rfv /opt/hostedtoolcache
       - name: uninstall_snap
         run: |

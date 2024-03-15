@@ -13,10 +13,9 @@ jobs:
     steps:
       - name: Free disk space
         run: |
-          cd /usr/local
-          sudo find . -type 'f' | sudo grep -v "apt-fast" | sudo xargs rm -rf *
-          cd
-          sudo rm -rf /opt/hostedtoolcache
+          sudo mv -v /usr/local /usr/local.trash
+          sudo mv -v /opt/hostedtoolcache /opt/hostedtoolcache.trash
+          sudo systemd-run rm -rf /usr/local.trash /opt/hostedtoolcache.trash
       - name: uninstall_snap
         run: |
           sudo systemctl disable --now snapd

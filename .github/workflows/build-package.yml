@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Free disk space
         run: |
+          sudo pushd /usr/local
+          sudo find . -type 'f' | sudo grep -v "apt-fast" | sudo xargs rm -rf *
+          sudo popd
           sudo rm -rf /opt/hostedtoolcache
       - name: uninstall_snap
         run: |

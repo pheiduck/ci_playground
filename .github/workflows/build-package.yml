@@ -11,10 +11,6 @@ jobs:
         PACKAGE: [ci-test]
         REPO: [pheiduck]
     steps:
-      - name: update_packages
-        run: |
-          cmd_upgrade=$(sudo apt update && sudo apt upgrade -y)
-          sudo systemd-run cmd_upgrade
       - name: install_build-dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:

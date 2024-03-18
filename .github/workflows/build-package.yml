@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: update_packages
         run: |
-          sudo systemd-run sudo apt update && sudo apt upgrade -y
+          cmd_upgrade=$(sudo apt update && sudo apt upgrade -y)
+          sudo systemd-run cmd_upgrade
       - name: install_build-dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:

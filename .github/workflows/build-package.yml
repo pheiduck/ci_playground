@@ -73,7 +73,7 @@ jobs:
           sudo ./configure --prefix=/usr \
                            --sysconfdir=/etc \
                            --localstatedir=/var
-          sodo make
+          sudo make
           sudo make check
           sudo make install DESTDIR="$pkgdir"
           popd

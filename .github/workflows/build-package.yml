@@ -65,16 +65,9 @@ jobs:
           popd
           sudo pacman-key --init
           sudo pacman-key --populate archlinux manjaro
-      - name: install_pacman-contrib
-        run: |
-          sudo git clone -q --depth 1 https://gitlab.archlinux.org/pacman/pacman-contrib.git
-          pushd pacman-contrib
-          sudo ./autogen.sh
-          sudo ./configure --prefix=/usr \
-                           --sysconfdir=/etc \
-                           --localstatedir=/var
-          sudo make
-          sudo make check
-          sudo make install DESTDIR="$pkgdir"
-          popd
-          updpkgsums
+      - name: Validate package
+        uses: heyhusen/archlinux-package-action@v2
+        with:
+          flags: ''
+          namcap: false
+          updpkgsums: true

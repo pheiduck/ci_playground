@@ -66,7 +66,7 @@ jobs:
           sudo pacman-key --init
           sudo pacman-key --populate archlinux manjaro
       - name: Validate package
-        uses: heyhusen/archlinux-package-action@v2
+        uses: heyhusen/archlinux-package-action@main
         with:
           flags: ''
           namcap: false

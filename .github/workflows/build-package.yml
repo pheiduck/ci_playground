@@ -11,8 +11,6 @@ jobs:
         PACKAGE: [ci-test]
         REPO: [pheiduck]
     steps:
-      - name: Setup Repo Jammy ==> Noble
-        run: sudo sed -i 's/jammy/noble/' /etc/apt/sources.list && sudo apt-get update
       - name: install_build-dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:

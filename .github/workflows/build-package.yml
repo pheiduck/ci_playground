@@ -22,7 +22,12 @@ jobs:
           sudo systemd-run rm -rf /usr/local.trash /opt/hostedtoolcache.trash
       - name: install_python-dependencies
         run: |
-          sudo PIP_BREAK_SYSTEM_PACKAGES 1
+          pushd /etc/
+          sudo cat > pip.conf <<EOF
+            [global]
+            break-system-packages = true
+          EOF
+          popd
           sudo python3 -m pip install meson ninja
       - name: install_pacman
         run: |
